@@ -2,7 +2,7 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - dotnet
+  - csharp
   - java
 
 toc_footers:
@@ -22,7 +22,7 @@ Welkom bij de documentatie van de API van Somtoday. Deze documentatie en de bijb
 
 > Om in te loggen, gebruik een van de volgende codes:
 
-```dotnet
+```csharp
 WIP
 ```
 
