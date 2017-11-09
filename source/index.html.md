@@ -34,10 +34,22 @@ Oauth oauth = somAPI.login("GEBRUIKERSNAAM", "WACHTWOORD", new SchoolManager().g
 
 > Vervang GEBRUIKERSNAAM met je inlog naam en WACHTWOORD met je wachtwoord.
 
+> Dit zou er terug moeten komen
+```json
+{
+    
+}
+```
+
 Somtoday maakt voor de authenticatie gebruik van een speciale Authorization header, die gecreeërd wordt door een clientId en een secretId te encoden in Base64.
 
+`Endpoint: https://productie.somtoday.nl/oauth2/token`
 
 `Authorization: Basic RDUwRTBDMDYtMzJEMS00QjQxLUExMzctQTlBODUwQzg5MkMyOnZEZFdkS3dQTmFQQ3loQ0RoYUNuTmV5ZHlMeFNHTkpY`
+
+Verder zijn deze headers ook verplicht in de request:
+`Content-Type: application/x-www-form-urlencoded`
+`Accept: application/json`
 
 <aside class="notice">
 Als je zelf de header wilt genereren kun je dat doen door dit te gebruiken:<br>
