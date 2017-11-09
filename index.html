@@ -273,29 +273,25 @@ Als je zelf de header wilt genereren kun je dat doen door dit te gebruiken:<br>
 <pre class="highlight csharp tab-csharp"><code><span class="n">WIP</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="n">SomAPI</span> <span class="n">somAPI</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SomAPI</span><span class="o">();</span>
 <span class="n">Oauth</span> <span class="n">oauth</span> <span class="o">=</span> <span class="n">somAPI</span><span class="o">.</span><span class="na">login</span><span class="o">(</span><span class="s">"GEBRUIKERSNAAM"</span><span class="o">,</span> <span class="s">"WACHTWOORD"</span><span class="o">,</span> <span class="k">new</span> <span class="n">SchoolManager</span><span class="o">().</span><span class="na">getSchoolByName</span><span class="o">(</span><span class="s">"SCHOOL NAAM"</span><span class="o">));</span>
-<span class="c1">//Vervang GEBRUIKERSNAAM met je inlog naam, WACHTWOORD met je wachtwoord en SCHOOL NAAM met de naam van je instantie, meer info daarover bij het kopje Scholen</span>
+<span class="c1">//Vervang GEBRUIKERSNAAM met je inlog naam, WACHTWOORD met je wachtwoord en SCHOOL NAAM met de naam van je instantie, meer info daarover bij het kopje scholen.</span>
 </code></pre>
 <blockquote>
-<p>Vervang GEBRUIKERSNAAM met je inlog naam en WACHTWOORD met je wachtwoord.</p>
-
-<p>Dit zou er terug moeten komen
-<code>json
-{
-    &quot;access_token&quot;: &quot;access token&quot;,
-    &quot;refresh_token&quot;: &quot;refresh token&quot;,
-    &quot;somtoday_api_url&quot;: &quot;endpoint id&quot;,
-    &quot;scope&quot;: &quot;openid&quot;,
-    &quot;somtoday_tenant&quot;: &quot;tenant&quot;,
-    &quot;id_token&quot;: &quot;id token&quot;,
-    &quot;token_type&quot;: &quot;Bearer&quot;,
-    &quot;expires_in&quot;: 3600
-}
-</code></p>
+<p>Dit zou er terug moeten komen</p>
 </blockquote>
-
-<p>This endpoint retrieves all kittens.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"access token"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refresh token"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"somtoday_api_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"endpoint id"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"openid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"somtoday_tenant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tenant"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id token"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Dit endpoint zorgt ervoor dat je kunt inloggen en de benodigde tokens en endpoints verkrijgt</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
+<p><code>GET https://productie.somtoday.nl/oauth2/token</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
