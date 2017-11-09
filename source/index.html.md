@@ -20,6 +20,24 @@ Welkom bij de documentatie van de API van Somtoday. Deze documentatie en de bijb
 
 # Authenticatie
 
+Somtoday maakt voor de authenticatie gebruik van een speciale Authorization header, die opgehaald wordt door het login request. Om het login request te doen gebruik je een header die gecreeërd wordt door een clientId en een secretId te encoden in Base64.
+
+`Authorization: Basic RDUwRTBDMDYtMzJEMS00QjQxLUExMzctQTlBODUwQzg5MkMyOnZEZFdkS3dQTmFQQ3loQ0RoYUNuTmV5ZHlMeFNHTkpY`
+
+<aside class="notice">
+Als je zelf de header wilt genereren kun je dat doen door dit te gebruiken:<br>
+<code>ClientID = D50E0C06-32D1-4B41-A137-A9A850C892C2</code><br>
+<code>ClientSecret = vDdWdKwPNaPCyhCDhaCnNeydyLxSGNJX</code><br>
+<code>Base64.encode(ClientID + ":" + ClientSecret);</code>
+</aside>
+
+Eenmaal ingelogd wordt de header veranderd naar
+`Authorization: Bearer ACCESS_TOKEN`
+
+# Login
+
+## Login met gebruikersnaam + wachtwoord
+
 > Om in te loggen, gebruik een van de volgende codes:
 
 ```csharp
@@ -37,76 +55,15 @@ Oauth oauth = somAPI.login("GEBRUIKERSNAAM", "WACHTWOORD", new SchoolManager().g
 > Dit zou er terug moeten komen
 ```json
 {
-    
+    "access_token": "access token",
+    "refresh_token": "refresh token",
+    "somtoday_api_url": "endpoint id",
+    "scope": "openid",
+    "somtoday_tenant": "tenant",
+    "id_token": "id token",
+    "token_type": "Bearer",
+    "expires_in": 3600
 }
-```
-
-Somtoday maakt voor de authenticatie gebruik van een speciale Authorization header, die gecreeërd wordt door een clientId en een secretId te encoden in Base64.
-
-`Endpoint: https://productie.somtoday.nl/oauth2/token`
-
-`Authorization: Basic RDUwRTBDMDYtMzJEMS00QjQxLUExMzctQTlBODUwQzg5MkMyOnZEZFdkS3dQTmFQQ3loQ0RoYUNuTmV5ZHlMeFNHTkpY`
-
-Verder zijn deze headers ook verplicht in de request:
-`Content-Type: application/x-www-form-urlencoded`
-`Accept: application/json`
-
-<aside class="notice">
-Als je zelf de header wilt genereren kun je dat doen door dit te gebruiken:<br>
-<code>ClientID = D50E0C06-32D1-4B41-A137-A9A850C892C2</code><br>
-<code>ClientSecret = vDdWdKwPNaPCyhCDhaCnNeydyLxSGNJX</code><br>
-<code>Base64.encode(ClientID + ":" + ClientSecret);</code>
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
 ```
 
 This endpoint retrieves all kittens.
